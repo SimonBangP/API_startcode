@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.time.LocalDateTime;
 
 @Getter
@@ -15,6 +17,7 @@ import java.time.LocalDateTime;
 public class CarRequest {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String brand;
     String model;
@@ -29,6 +32,6 @@ public class CarRequest {
 
     public static Car getCarEntity (CarRequest c){
 
-        return new Car(c.id, c.brand, c.model, c.privePrDay, c.bestDiscount);
+        return new Car(c.brand, c.model, c.privePrDay, c.bestDiscount);
     }
 }

@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import java.time.LocalDateTime;
 
 @Getter
@@ -17,6 +19,7 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CarResponse {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String brand;
     String model;

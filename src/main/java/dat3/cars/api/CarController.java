@@ -5,6 +5,7 @@ import dat3.cars.dto.CarResponse;
 import dat3.cars.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,4 +28,9 @@ CarService carService;
         return carService.getCars();
     }
 
+    @GetMapping(path = "/{id}")
+    public CarResponse getCarById(@PathVariable int id) throws Exception {
+    CarResponse response = carService.findCarById(id);
+    return response;
+    }
 }

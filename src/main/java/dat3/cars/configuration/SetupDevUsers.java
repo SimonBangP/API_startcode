@@ -43,7 +43,7 @@ public class SetupDevUsers implements ApplicationRunner {
 
     carRepository.save(car1);
 
-    Car car2 = new Car(1, "Testbil", "Testbil", 200, 30);
+    Car car2 = new Car("Testbil", "Testbil", 200, 30);
     carRepository.save(car2);
 
     setupUserWithRoleUsers();
