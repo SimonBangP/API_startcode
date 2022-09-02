@@ -15,11 +15,10 @@ public class CarController {
 
 CarService carService;
 
-
     @GetMapping
     public List<CarResponse> getCars (){
 
-        return null;
+        return carService.getCars();
     }
 
 }
