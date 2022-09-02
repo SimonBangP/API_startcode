@@ -53,10 +53,16 @@ CarService carService;
         carService.deleteCarById(id);
     }
 
-@PutMapping ("/{id}")
+    @PutMapping ("/{id}")
     public ResponseEntity<Boolean> editCar (@RequestBody CarRequest body, @PathVariable int id){
         carService.editCar(body, id);
 
         return new ResponseEntity<>(true, HttpStatus.OK);
-}
+    }
+
+
+    @PatchMapping("/pricePrDay/{id}/{value}")
+    public void setpricePrDayForCar(@PathVariable int id, @PathVariable int value){
+        carService.setPricePrDay(id,value);
+    }
 }
