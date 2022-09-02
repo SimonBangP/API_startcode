@@ -21,7 +21,7 @@ public class CarRequest {
     int id;
     String brand;
     String model;
-    double privePrDay;
+    double pricePrDay;
     double bestDiscount;
 
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss",shape = JsonFormat.Shape.STRING)
@@ -32,6 +32,8 @@ public class CarRequest {
 
     public static Car getCarEntity (CarRequest c){
 
-        return new Car(c.brand, c.model, c.privePrDay, c.bestDiscount);
+        return new Car(c.brand, c.model, c.pricePrDay, c.bestDiscount);
     }
+
+
 }

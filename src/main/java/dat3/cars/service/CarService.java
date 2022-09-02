@@ -2,12 +2,8 @@ package dat3.cars.service;
 
 import dat3.cars.dto.CarRequest;
 import dat3.cars.dto.CarResponse;
-import dat3.cars.dto.MemberRequest;
-import dat3.cars.dto.MemberResponse;
 import dat3.cars.entity.Car;
-import dat3.cars.entity.Member;
 import dat3.cars.repository.CarRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,4 +46,19 @@ public CarResponse addCar(CarRequest carRequest){
 public void deleteCarById(int id){
         carRepository.deleteById(id);
 }
+
+    public void editCar(CarRequest body, int id) {
+     Car car = carRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Car with this ID doew already Exist"));
+        car.setBrand(body.getBrand());
+        car.setModel(body.getModel());
+        car.setPricePrDay(body.getPricePrDay());
+        car.setBestDiscount(body.getBestDiscount());
+
+        carRepository.save(car);
+
+    }
+
+  /*  Member member = memberRepository.findById(username).orElseThrow(()->  new ResponseStatusException(HttpStatus.BAD_REQUEST,"Member with this username already exist"));
+    if(!body.getUsername().equals(username)){
+        throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Cannot change username"); */
 }
