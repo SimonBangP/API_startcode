@@ -40,6 +40,11 @@ CarService carService;
         return carService.addCar(body);
     }
 
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.TEXT_HTML_VALUE)
+    public String addCar2(@RequestBody CarRequest body) {
+        carService.addCar(body);
+        return  body.getId() + " was created";
+    }
 
     @DeleteMapping(path = "/{id}")
     public void deteleCarById(@PathVariable int id){
