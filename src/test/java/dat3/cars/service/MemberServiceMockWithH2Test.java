@@ -36,6 +36,7 @@ class MemberServiceMockWithH2Test {
 
     @BeforeEach
     public void setMemberService(){
+
         memberService = new MemberService(memberRepository);
     }
     @Test
