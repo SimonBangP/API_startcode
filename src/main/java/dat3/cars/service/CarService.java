@@ -64,6 +64,13 @@ public CarResponse addCar(CarRequest carRequest){
 
         carRepository.save(car);
     }
+
+    public void setBestDiscount(int id, int bestDiscount) {
+        Car car = carRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Car with this ID does already Exist"));
+        car.setBestDiscount(bestDiscount);
+
+        carRepository.save(car);
+    }
   /*  Member member = memberRepository.findById(username).orElseThrow(()->  new ResponseStatusException(HttpStatus.BAD_REQUEST,"Member with this username already exist"));
     if(!body.getUsername().equals(username)){
         throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Cannot change username"); */

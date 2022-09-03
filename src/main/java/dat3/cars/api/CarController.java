@@ -65,4 +65,9 @@ CarService carService;
     public void setpricePrDayForCar(@PathVariable int id, @PathVariable int value){
         carService.setPricePrDay(id,value);
     }
+    @PatchMapping("/bestDiscount/{id}/{value}")
+    public void setbestDiscountForCar(@PathVariable int id, @PathVariable int value){
+        carService.setBestDiscount(id,value);
+    }
+
 }
