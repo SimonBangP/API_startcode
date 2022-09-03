@@ -30,6 +30,11 @@ public class CarRequest {
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss",shape = JsonFormat.Shape.STRING)
     LocalDateTime edited;
 
+    public CarRequest(Car car) {
+
+
+    }
+
     public static Car getCarEntity (CarRequest c){
 
         return new Car(c.brand, c.model, c.pricePrDay, c.bestDiscount);
