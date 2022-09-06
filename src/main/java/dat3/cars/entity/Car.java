@@ -41,11 +41,12 @@ public class Car {
   LocalDateTime edited;
 
 
-  @OneToMany (mappedBy = "car")
+  @OneToMany (mappedBy = "car", cascade = CascadeType.ALL)
   List<Reservation> reservations = new ArrayList<>();
 
   public void addReservation (Reservation res){
     reservations.add(res);
+    res.setCar(this);
   }
 
   public Car(String brand, String model, double pricePrDay, double bestDiscount) {

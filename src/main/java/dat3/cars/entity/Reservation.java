@@ -40,5 +40,14 @@ public class Reservation {
         this.rentalDate = rentalDate;
     }
 
+    public Reservation (Member member, Car car, LocalDate rentalDate){
+        this.member = member;
+        this.car = car;
+        this.rentalDate = rentalDate;
+    }
 
+    public Reservation(Member member, Car car) {
+        this.member = member;
+        this.car = car;
+    }
 }
