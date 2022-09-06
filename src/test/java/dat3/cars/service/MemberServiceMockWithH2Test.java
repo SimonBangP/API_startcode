@@ -72,6 +72,4 @@ class MemberServiceMockWithH2Test {
     @Test
     void setRankingForUser() {
     }
-
-
 }

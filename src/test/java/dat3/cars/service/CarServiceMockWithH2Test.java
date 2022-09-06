@@ -2,7 +2,9 @@ package dat3.cars.service;
 
 import dat3.cars.dto.CarRequest;
 import dat3.cars.dto.CarResponse;
+import dat3.cars.dto.MemberRequest;
 import dat3.cars.entity.Car;
+import dat3.cars.entity.Member;
 import dat3.cars.repository.CarRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,11 +28,10 @@ class CarServiceMockWithH2Test {
         carRepository = car_Repository;
 
         List<Car> cars = List.of(
-                new Car("testBrand1", "testModel1", 400, 50),
-                new Car("testBrand2", "testModel2", 300, 120)
+                new Car(1,"testBrand1", "testModel1", 400, 50),
+                new Car(2,"testBrand2", "testModel2", 300, 120)
         );
         carRepository.saveAll(cars);
-
     }
 
     @BeforeEach
@@ -46,16 +47,14 @@ class CarServiceMockWithH2Test {
 
     }
 
-   /* @Test
+    @Test
     void addCar() {
-        Car car = new Car("testBrand3", "testModel3", 200, 40);
+        Car car = new Car(3,"testBrand3", "testModel3", 200, 40);
         CarRequest carRequest = new CarRequest(car);
         carService.addCar(carRequest);
 
         assertEquals(3, carRepository.count());
-
-
-    }*/
+    }
 
 
 
@@ -69,6 +68,4 @@ class CarServiceMockWithH2Test {
         assertEquals("testModel2", response.getModel());
 
     }
-
-
 }
