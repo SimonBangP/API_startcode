@@ -21,13 +21,10 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-
     @ManyToOne
     Member member;
-
     @ManyToOne
     Car car;
-
     @CreationTimestamp
     LocalDateTime reservationDate;
 
@@ -46,8 +43,5 @@ public class Reservation {
         this.rentalDate = rentalDate;
     }
 
-    public Reservation(Member member, Car car) {
-        this.member = member;
-        this.car = car;
-    }
+
 }

@@ -1,5 +1,9 @@
 package dat3.cars.service;
 
+import dat3.cars.dto.CarRequest;
+import dat3.cars.dto.CarResponse;
+import dat3.cars.dto.ReservationRequest;
+import dat3.cars.dto.ReservationResponse;
 import dat3.cars.entity.Car;
 import dat3.cars.entity.Member;
 import dat3.cars.entity.Reservation;
@@ -11,7 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class ReservationService {
@@ -27,12 +33,15 @@ public class ReservationService {
         this.carRepository = carRepository;
     }
 
-    public void reserveCar(String username, int carId, LocalDate rentalDate){
-        Member member = memberRepository.findById(username).orElseThrow(()-> new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, "User not found"));
-        Car car = carRepository.findById(carId).orElseThrow(()-> new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, "Car not found"));
-        
-       if (reservationRepository.existsByCar_IdAndRentalDate(carId, rentalDate)){
-         throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT, "Car already reserved for this date");
+
+    public List<ReservationResponse> getReservations (){
+
+        List<Reservation> reservations = reservationRepository.findAll();
+
+        List<ReservationResponse> response = reservations.stream().map(reservation -> new ReservationResponse(reservation)).collect(Collectors.toList());
+        return response;
+    }
+
 
        }
 
