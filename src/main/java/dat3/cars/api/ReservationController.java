@@ -27,10 +27,10 @@ public class ReservationController {
     }
 
 
-    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+   /* @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
     public ReservationResponse addReservation(@RequestBody ReservationRequest body) {
         return reservationService.addReservation(body);
-    }
+    } */
 
     /*@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.TEXT_HTML_VALUE)
     public String addCar2(@RequestBody CarRequest body) {
