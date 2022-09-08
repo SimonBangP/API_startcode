@@ -51,11 +51,11 @@ public class SetupDevUsers implements ApplicationRunner {
 
     carRepository.save(car1);
 
-    Reservation reservation = new Reservation(m1, car1, LocalDate.of(2020,2,1));
+    Reservation reservation1 = new Reservation(m1, car1, LocalDate.of(2020,2,1));
     Car car2 = new Car("Testbil", "Testbil", 200, 30);
     carRepository.save(car2);
 
-    reservationRepository.save(reservation);
+    reservationRepository.save(reservation1);
 
     setupUserWithRoleUsers();
   }
