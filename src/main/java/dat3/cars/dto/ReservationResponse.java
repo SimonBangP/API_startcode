@@ -1,22 +1,13 @@
 package dat3.cars.dto;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import dat3.cars.entity.Car;
-import dat3.cars.entity.Member;
 import dat3.cars.entity.Reservation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -35,7 +26,7 @@ public class ReservationResponse {
 
     LocalDate rentalDate;
 
-    String model;
+    String brand;
 
 
     public ReservationResponse(Reservation reservation) {
@@ -43,7 +34,7 @@ public class ReservationResponse {
         this.carId = reservation.getCar().getId();
         this.username = reservation.getMember().getUsername();
         this.rentalDate = reservation.getRentalDate();
-        this.model = reservation.getCar().getModel();
+        this.brand = reservation.getCar().getBrand();
 
     }
 }
