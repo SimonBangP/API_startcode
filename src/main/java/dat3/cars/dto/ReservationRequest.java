@@ -20,7 +20,6 @@ public class ReservationRequest {
     LocalDate rentalDate;
 
     public ReservationRequest ( int carId, String username, LocalDate rentalDate){
-
         this.carId = carId;
         this.userName = username;
         this.rentalDate = rentalDate;

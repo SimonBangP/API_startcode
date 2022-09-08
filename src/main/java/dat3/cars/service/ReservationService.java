@@ -41,12 +41,4 @@ public class ReservationService {
         List<ReservationResponse> response = reservations.stream().map(reservation -> new ReservationResponse(reservation)).collect(Collectors.toList());
         return response;
     }
-
-
-       }
-
-        Reservation reservation = new Reservation(member, car, rentalDate);
-        reservationRepository.save(reservation);
-
-    }
 }

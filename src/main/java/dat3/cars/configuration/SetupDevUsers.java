@@ -1,12 +1,16 @@
 package dat3.cars.configuration;
 
+import dat3.cars.dto.ReservationRequest;
 import dat3.cars.entity.Car;
 import dat3.cars.entity.Member;
+import dat3.cars.entity.Reservation;
 import dat3.cars.repository.CarRepository;
 import dat3.cars.repository.MemberRepository;
+import dat3.cars.repository.ReservationRepository;
 import dat3.security.entity.Role;
 import dat3.security.entity.UserWithRoles;
 import dat3.security.repository.UserWithRolesRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Controller;
@@ -18,16 +22,18 @@ public class SetupDevUsers implements ApplicationRunner {
 
   UserWithRolesRepository userWithRolesRepository;
   MemberRepository memberRepository;
-
+  ReservationRepository reservationRepository;
   CarRepository carRepository;
   String passwordUsedByAll;
 
   public SetupDevUsers(UserWithRolesRepository userWithRolesRepository,
+                       ReservationRepository reservationRepository,
                        MemberRepository memberRepository,
                        CarRepository carRepository) {
     this.userWithRolesRepository = userWithRolesRepository;
     this.memberRepository = memberRepository;
     this.carRepository = carRepository;
+    this.reservationRepository = reservationRepository;
     passwordUsedByAll = "test12";
   }
 
@@ -45,8 +51,11 @@ public class SetupDevUsers implements ApplicationRunner {
 
     carRepository.save(car1);
 
+    Reservation reservation = new Reservation(m1, car1, LocalDate.of(2020,2,1));
     Car car2 = new Car("Testbil", "Testbil", 200, 30);
     carRepository.save(car2);
+
+    reservationRepository.save(reservation);
 
     setupUserWithRoleUsers();
   }

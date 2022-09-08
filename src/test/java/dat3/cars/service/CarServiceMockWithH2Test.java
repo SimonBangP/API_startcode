@@ -57,7 +57,6 @@ class CarServiceMockWithH2Test {
     }
 
 
-
     @Test
     void getCars() {
     }
