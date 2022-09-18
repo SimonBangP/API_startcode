@@ -54,6 +54,8 @@ public class SetupDevUsers implements ApplicationRunner {
     Car car2 = new Car("Testbil", "Testbil", 200, 30);
     carRepository.save(car2);
 
+    Car car3 = new Car("Testbrand1", "Testmodel1", 400, 20);
+
     Reservation reservation1 = new Reservation(m1, car1, LocalDate.of(2020,2,1));
     Reservation reservation2 = new Reservation(m1, car2, LocalDate.of(2022,4,3));
 
