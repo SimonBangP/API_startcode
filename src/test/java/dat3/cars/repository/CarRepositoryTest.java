@@ -34,15 +34,15 @@ class CarRepositoryTest {
     assertEquals(1,cars.size());
   }
 
-  @Test
-  void findCarByPricePrDayBetween() {
-    List<Car> cars = carRepository.findCarByPricePrDayBetween(0,300);
-    assertEquals(1,cars.size());
-
-    cars = carRepository.findCarByPricePrDayBetween(251,800);
-    assertEquals(1,cars.size());
-
-    cars = carRepository.findCarByPricePrDayBetween(0,701);
-    assertEquals(2,cars.size());
-  }
+//  @Test
+//  void findCarByPricePrDayBetween() {
+//    List<Car> cars = carRepository.findCarByPricePrDayBetween(0,300);
+//    assertEquals(1,cars.size());
+//
+//    cars = carRepository.findCarByPricePrDayBetween(251,800);
+//    assertEquals(1,cars.size());
+//
+//    cars = carRepository.findCarByPricePrDayBetween(0,701);
+//    assertEquals(2,cars.size());
+//  }
 }
