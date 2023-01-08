@@ -10,9 +10,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <!--Often a reversed company domain name, here you could use something like below -->
-    <groupId>kea.sem3.rename_me</groupId>
+    <groupId>kea.sem3</groupId>
     <!-- The artifactId is the base package name used in the project -->
-    <artifactId>dat3.renameme</artifactId>
+    <artifactId>dat3</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Any name you like, that makes sense for the project</name>
     <description>
@@ -88,7 +88,18 @@
                     </excludes>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <excludes>
+                        <exclude>org.apache.commons:commons-collections4</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
+
 
 </project>
